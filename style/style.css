@@ -1,3 +1,26 @@
 .nav-item{
     font-size: 20px;
 }
+
+.row{
+    margin-left: 0px !important;
+}
+
+h5, h2{
+    border-bottom: 1px solid;
+    display: inline;
+}
+
+#statesAPI, #countriesAPI{
+    display: none;
+}
+
+.no-border{
+    border-bottom: none !important;
+}
+.show{
+    display: block;
+}
+.hide{
+    display: none;
+}

@@ -23,16 +23,13 @@ private $database;
         $cidade = $pessoa->getEndereco()->getCidade();
 
         $sql = "INSERT INTO pessoas(Nome,idade, logradouro, bairro, cidade) 
-            VALUES('$nome', 
-            '$idade',
-            '$logradouro',
-            '$bairro',
-            '$cidade')";
+            VALUES('$nome', '$idade','$logradouro','$bairro','$cidade')";
 
         if ($this->conn->query($sql) === TRUE) {
-            echo '<script>window.location.href = "/Covidsimples/pages/cadastro.php";</script>';
+            header("Location: ../pages/cadastro.php?register=" . 'true');
         } else {
-            echo "Error: " . $sql . "<br>" . $this->conn->error;
+            header("Location: ../pages/cadastro.php?register=" . 'false');
+            //echo "Error: " . $sql . "<br>" . $this->conn->error;
         }
 
     $this->conn->close();
@@ -82,9 +79,9 @@ private $database;
         $sql = "UPDATE pessoas SET nome = '$nome', idade = '$idade', logradouro = '$logradouro', bairro = '$bairro', cidade = '$cidade' where id = '$id'";
 
         if ($this->conn->query($sql) === TRUE) {
-          echo '<script>window.location.href = "/Covidsimples/pages/listar.php";</script>';
+            header("Location: ../pages/listar.php?update=" . 'true');
         } else {
-            echo "Error: " . $sql . "<br>" . $this->conn->error;
+            header("Location: ../pages/listar.php?update=" . 'false');
         }
 
     $this->conn->close();
@@ -94,9 +91,9 @@ private $database;
         $sql = "DELETE from pessoas where id = '$id'";
         
         if ($this->conn->query($sql) === TRUE) {
-            echo '<script>window.location.href = "/Covidsimples/pages/listar.php";</script>';
+            header("Location: ../pages/listar.php?delete=" . 'true');
           } else {
-              echo "Error: " . $sql . "<br>" . $this->conn->error;
+            header("Location: ../pages/listar.php?delete=" . 'false');
           }
   
       $this->conn->close();

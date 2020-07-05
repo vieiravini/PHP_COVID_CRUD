@@ -34,7 +34,11 @@
     <main>
         <br><br>
         <div class="container">
+
             <form class="w-75 p-3 m-auto" method="POST" action="../php/register.php">
+            <div class="alert <?php include '../php/alertclass.php';?>">
+                <?php include "../php/alert.php" ?>
+            </div>
             <div class="form-row">
                 <div class="form-group col-md-6">
                         <label for="inputName">Nome:</label>

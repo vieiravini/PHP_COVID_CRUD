@@ -34,7 +34,12 @@
     <main>
 
         <div class="container">
-            <h2>Listagem</h2>
+            <div class="alert <?php include '../php/alertclass.php';?>">
+                <?php include "../php/alert.php" ?>
+            </div>
+            <h2 class="no-border" >Listagem</h2>
+            <br><br>
+            
             <table class="table table-hover">
                 <thead class="thead-dark">
                     <tr>
@@ -59,33 +64,23 @@
                     <td><?php echo $pessoa['logradouro']?></td>
                     <td><?php echo $pessoa['bairro']?></td>
                     <td><?php echo $pessoa['cidade']?></td>
-                    <td><a class="icone" href="../php/update.php?id=<?=$pessoa['id']?>">
-                        <i class="far fa-edit"></i></a>
+                    <td>
+                        <a class="icone" href="../php/update.php?id=<?=$pessoa['id']?>">
+                            <button class="btn btn-primary"><i class="far fa-edit"></i></button>
+                        </a>
                     </td>
                     
-                    <td><a id="open-modal" href="#" class="icone"><i class="far fa-trash-alt"></i></a></td>
-                    
+                    <td>
+                        <a href="../php/delete.php?id=<?=$pessoa['id']?>">
+                            <button type="button" class="btn btn-danger"><i class="far fa-trash-alt"></i></button>
+                        </a>
+                        
+                    </td>
+
+
+
                     </tr>
 
-                    <div id="myModal" class="modal fade" tabindex="-1" role="dialog">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title">Excluir <?php echo $pessoa['nome']?></h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <h6>Tem certeza que deseja excluir <?php echo $pessoa['nome']?>?</h6>
-                            </div>
-                            <div class="modal-footer">
-                            <a href="../php/delete.php?id=<?=$pessoa['id']?>"><button type="button" class="btn btn-danger">Exluir</button></a>
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                            </div>
-                            </div>
-                        </div>
-                    </div>
                     <?php }}?>
                 </tbody>
             </table>
@@ -95,7 +90,6 @@
 
             
     
-
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
